@@ -14,7 +14,8 @@ export function useDataTableContext() {
 }
 
 export default function DataTableContextProvider({ config, children }: DataTableContextProviderProps) {
-  const [state, dispatch] = useReducer(reducer, { ...initialState, ...config })
+  const init: DataTableState = { ...initialState, ...config }
+  const [state, dispatch] = useReducer(reducer, init)
   const value = useMemo(() => [state, dispatch], [state, dispatch])
 
   return <DataTableContext.Provider value={value}>{children}</DataTableContext.Provider>

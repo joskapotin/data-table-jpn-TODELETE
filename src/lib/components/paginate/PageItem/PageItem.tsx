@@ -1,8 +1,13 @@
-import PropTypes from "prop-types"
 import { useDataTableContext } from "../../../contexts/DataTableContext"
 import { setCurrentPage } from "../../../reducer/actionCreators"
 
-export default function PageItem({ tableId, index, text }) {
+type PageItemProps = {
+  tableId: string
+  index: number
+  text: string
+}
+
+export default function PageItem({ tableId, index, text }: PageItemProps) {
   const [{ currentPage, totalPages }, dispatch] = useDataTableContext()
 
   const disabled = (currentPage === 1 && index === 0) || (currentPage === totalPages && index === totalPages + 1) || totalPages < 2
@@ -18,7 +23,7 @@ export default function PageItem({ tableId, index, text }) {
     }
   }
 
-  const handleClick = newPage => {
+  const handleClick = (newPage: number) => {
     dispatch(setCurrentPage(newPage))
   }
 
@@ -35,10 +40,4 @@ export default function PageItem({ tableId, index, text }) {
       </button>
     </li>
   )
-}
-
-PageItem.propTypes = {
-  tableId: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired,
-  text: PropTypes.string.isRequired,
 }

@@ -12,7 +12,7 @@ export default function Filter() {
     dispatch(setFilterResults(filteredData))
   }, [entries, filter, dispatch])
 
-  const handleChange = e => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilter(e.target.value)
   }
 

@@ -1,6 +1,6 @@
 import actionTypes from "./reducer/actionTypes"
 
-export type Label = string
+export type Label = { title: string; data: string }
 export type Labels = Label[]
 export type Entry = { [key: string]: string }
 export type Entries = Entry[]

@@ -1,8 +1,11 @@
-import PropTypes from "prop-types"
 import Head from "./head/Head"
 import Body from "./body/Body"
 
-export default function Table({ tableId }) {
+type TableProps = {
+  tableId: string
+}
+
+export default function Table({ tableId }: TableProps) {
   return (
     <div className="table-responsive">
       <table className="dataTable table table-striped" id={tableId}>
@@ -11,8 +14,4 @@ export default function Table({ tableId }) {
       </table>
     </div>
   )
-}
-
-Table.propTypes = {
-  tableId: PropTypes.string.isRequired,
 }

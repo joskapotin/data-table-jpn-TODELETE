@@ -1,11 +1,14 @@
 import { useEffect } from "react"
 import { v4 as uuidv4 } from "uuid"
-import PropTypes from "prop-types"
 import { useDataTableContext } from "../../contexts/DataTableContext"
 import { setPageSize, setTotalPages } from "../../reducer/actionCreators"
 import PageItem from "./PageItem/PageItem"
 
-export default function Paginate({ tableId }) {
+type PaginateProps = {
+  tableId: string
+}
+
+export default function Paginate({ tableId }: PaginateProps) {
   const [{ totalPages, pageSize, pageSizeOptions, filterResults }, dispatch] = useDataTableContext()
 
   useEffect(() => {
@@ -40,8 +43,4 @@ export default function Paginate({ tableId }) {
       <ul className="pagination">{PageElements()}</ul>
     </nav>
   )
-}
-
-Paginate.propTypes = {
-  tableId: PropTypes.string.isRequired,
 }

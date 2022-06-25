@@ -1,17 +1,21 @@
 import { useMemo } from "react"
-import PropTypes from "prop-types"
 import { useDataTableContext } from "../../../../contexts/DataTableContext"
 import { setSortBy, setSortDirection } from "../../../../reducer/actionCreators"
+import type { Label } from "../../../../types"
 
-export default function Label({ label }) {
+type ColumnProps = {
+  label: Label
+}
+
+export default function Column({ label }: ColumnProps) {
   const [{ sortBy, sortDirection }, dispatch] = useDataTableContext()
 
-  const handleClick = labelData => {
+  const handleClick = (labelData: string) => {
     if (labelData === sortBy) dispatch(setSortDirection())
     else dispatch(setSortBy(labelData))
   }
 
-  const getLabelClassName = labelData => {
+  const getLabelClassName = (labelData: string) => {
     if (labelData === sortBy) {
       if (sortDirection === "asc") return "sorting sorting_asc"
       return "sorting sorting_desc"
@@ -27,11 +31,4 @@ export default function Label({ label }) {
     ),
     [sortBy, sortDirection]
   )
-}
-
-Label.propTypes = {
-  label: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    data: PropTypes.string.isRequired,
-  }).isRequired,
 }
