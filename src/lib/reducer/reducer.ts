@@ -1,12 +1,7 @@
 import actionTypes from "./actionTypes"
+import type { DataTableState, DataTableAction } from "../types"
 
-type dataTableState = typeof initialState
-type dataTableAction = {
-  type: keyof typeof actionTypes
-  payload: number | string | any[]
-}
-
-export const initialState = {
+export const initialState: DataTableState = {
   labels: [],
   entries: [],
   pageSizeOptions: [10, 25, 50, 100],
@@ -18,7 +13,7 @@ export const initialState = {
   filterResults: [],
 }
 
-export default function reducer(state: dataTableState, action: dataTableAction) {
+export default function reducer(state: DataTableState, action: DataTableAction) {
   switch (action.type) {
     case actionTypes.SET_CURRENT_PAGE:
       return { ...state, currentPage: action.payload }

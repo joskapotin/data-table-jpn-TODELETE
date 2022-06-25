@@ -1,6 +1,6 @@
 import mockedEmployees from "./employees"
 
-const dataTable = () => {
+export default () => {
   return {
     labels: [
       { title: "First Name", data: "firstName" },
@@ -14,10 +14,7 @@ const dataTable = () => {
       { title: "Zip Code", data: "zipCode" },
     ],
     entries: mockedEmployees,
-    pageSizeOptions: [10, 25, 50, 100],
     sortBy: "firstName",
     sortDirection: "asc",
   }
 }
-
-export default dataTable

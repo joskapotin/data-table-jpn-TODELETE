@@ -1,4 +1,4 @@
-import dataTable from "../mock/dataTable"
+import config from "../mock/config"
 import { stall } from "../utilities/helpers"
 
 /**
@@ -6,5 +6,5 @@ import { stall } from "../utilities/helpers"
  */
 export async function getEmployees() {
   await stall(1500)
-  return dataTable()
+  return config()
 }

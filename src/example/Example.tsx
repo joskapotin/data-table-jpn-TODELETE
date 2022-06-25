@@ -8,7 +8,7 @@ function Example() {
   return (
     <>
       {loading && <div>Loading...</div>}
-      {value && <DataTable dataTable={value} />}
+      {value && <DataTable config={value} />}
       {error && <div>{error}</div>}
     </>
   )

@@ -1,4 +1,5 @@
 import actionTypes from "./actionTypes"
+import type { Entries } from "../types"
 
 export const setCurrentPage = (page: number) => ({
   type: actionTypes.SET_CURRENT_PAGE,
@@ -24,7 +25,7 @@ export const setSortDirection = () => ({
   type: actionTypes.SET_SORT_DIRECTION,
 })
 
-export const setFilterResults = (filterResults: any[]) => ({
+export const setFilterResults = (filterResults: Entries) => ({
   type: actionTypes.SET_FILTER_RESULTS,
   payload: filterResults,
 })
