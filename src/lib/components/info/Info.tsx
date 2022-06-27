@@ -4,7 +4,7 @@ export default function Info() {
   const [{ entries, currentPage, totalPages, pageSize, filterResults }] = useDataTableContext()
 
   const totalEntries = entries.length
-  const totalRow = filterResults.length
+  const totalRow = filterResults
   const isFilter = totalRow !== totalEntries
   const firstRow = (currentPage - 1) * pageSize + 1
   const lastRow = pageSize > totalRow || currentPage === totalPages ? totalRow : currentPage * pageSize

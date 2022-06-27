@@ -1,8 +1,10 @@
 import { useDataTableContext } from "../../contexts/DataTableContext"
-import { setPageSize } from "../../reducer/actionCreators"
+import { setPageSize } from "../../reducer/action-creators"
 
 export default function PageSize() {
-  const [{ pageSize, pageSizeOptions }, dispatch] = useDataTableContext()
+  const [{ pageSize }, dispatch] = useDataTableContext()
+
+  const pageSizeOptions = [10, 25, 50, 100]
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(setPageSize(parseInt(e.target.value, 10)))

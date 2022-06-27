@@ -1,19 +1,11 @@
-import { useState, useEffect } from "react"
 import { useDataTableContext } from "../../contexts/DataTableContext"
-import { setFilterResults } from "../../reducer/actionCreators"
-import { filterEntries } from "../../utilities/helpers"
+import { setFilter } from "../../reducer/action-creators"
 
 export default function Filter() {
-  const [{ entries }, dispatch] = useDataTableContext()
-  const [filter, setFilter] = useState("")
-
-  useEffect(() => {
-    const filteredData = filterEntries(entries, filter)
-    dispatch(setFilterResults(filteredData))
-  }, [entries, filter, dispatch])
+  const [{ filter }, dispatch] = useDataTableContext()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFilter(e.target.value)
+    dispatch(setFilter(e.target.value))
   }
 
   return (

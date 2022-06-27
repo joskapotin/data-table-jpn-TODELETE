@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { v4 as uuidv4 } from "uuid"
 import { useDataTableContext } from "../../contexts/DataTableContext"
-import { setPageSize, setTotalPages } from "../../reducer/actionCreators"
+import { setTotalPages } from "../../reducer/action-creators"
 import PageItem from "./PageItem/PageItem"
 
 type PaginateProps = {
@@ -9,14 +9,10 @@ type PaginateProps = {
 }
 
 export default function Paginate({ tableId }: PaginateProps) {
-  const [{ totalPages, pageSize, pageSizeOptions, filterResults }, dispatch] = useDataTableContext()
+  const [{ totalPages, pageSize, filterResults }, dispatch] = useDataTableContext()
 
   useEffect(() => {
-    dispatch(setPageSize(parseInt(pageSizeOptions[0], 10)))
-  }, [pageSizeOptions])
-
-  useEffect(() => {
-    dispatch(setTotalPages(Math.ceil(filterResults.length / pageSize)))
+    dispatch(setTotalPages(Math.ceil(filterResults / pageSize)))
   }, [filterResults, pageSize, dispatch])
 
   const PageElements = () => {

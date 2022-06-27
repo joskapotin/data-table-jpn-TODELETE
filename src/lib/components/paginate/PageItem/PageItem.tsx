@@ -1,5 +1,5 @@
 import { useDataTableContext } from "../../../contexts/DataTableContext"
-import { setCurrentPage } from "../../../reducer/actionCreators"
+import { setCurrentPage } from "../../../reducer/action-creators"
 
 type PageItemProps = {
   tableId: string

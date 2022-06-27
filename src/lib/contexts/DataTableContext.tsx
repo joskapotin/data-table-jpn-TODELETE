@@ -1,8 +1,9 @@
 import { createContext, useContext, useReducer, useMemo } from "react"
 import reducer, { initialState } from "../reducer/reducer"
-import type { DataTableState, Config, DataTableAction } from "../types"
+import type { Action } from "../reducer/actions"
+import type { DataTableState, Config } from "../types"
 
-type DataTableContextType = [state: DataTableState, dispatch: React.Dispatch<DataTableAction>]
+type DataTableContextType = [DataTableState, React.Dispatch<Action>]
 
 type DataTableContextProviderProps = {
   config: Config

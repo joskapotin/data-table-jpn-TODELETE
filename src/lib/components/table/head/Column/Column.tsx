@@ -1,6 +1,6 @@
 import { useMemo } from "react"
 import { useDataTableContext } from "../../../../contexts/DataTableContext"
-import { setSortBy, setSortDirection } from "../../../../reducer/actionCreators"
+import { setSortBy, setSortDirection } from "../../../../reducer/action-creators"
 import type { Label } from "../../../../types"
 
 type ColumnProps = {

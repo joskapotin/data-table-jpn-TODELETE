@@ -1,35 +1,38 @@
-import actionTypes from "./actionTypes"
-import type { DataTableState, DataTableAction } from "../types"
+import { ActionTypes } from "./action-types"
+import type { Action } from "./actions"
+import type { DataTableState } from "../types"
 
 export const initialState: DataTableState = {
   labels: [],
   entries: [],
-  pageSizeOptions: [10, 25, 50, 100],
   currentPage: 1,
-  totalPages: 1,
+  totalPages: -1,
   pageSize: 10,
   sortBy: "",
   sortDirection: "asc",
-  filterResults: [],
+  filter: "",
+  filterResults: -1,
 }
 
-export default function reducer(state: DataTableState, action: DataTableAction) {
+export default function reducer(state: DataTableState, action: Action) {
   switch (action.type) {
-    case actionTypes.SET_CURRENT_PAGE:
+    case ActionTypes.SET_CURRENT_PAGE:
       return { ...state, currentPage: action.payload }
-    case actionTypes.SET_TOTAL_PAGES:
+    case ActionTypes.SET_TOTAL_PAGES:
       return { ...state, totalPages: action.payload }
-    case actionTypes.SET_PAGE_SIZE:
+    case ActionTypes.SET_PAGE_SIZE:
       return { ...state, pageSize: action.payload, currentPage: 1 }
-    case actionTypes.SET_SORT_BY:
+    case ActionTypes.SET_SORT_BY:
       return { ...state, sortBy: action.payload }
-    case actionTypes.SET_SORT_DIRECTION:
+    case ActionTypes.SET_SORT_DIRECTION:
       return {
         ...state,
         sortDirection: state.sortDirection === "asc" ? "desc" : "asc",
       }
-    case actionTypes.SET_FILTER_RESULTS:
-      return { ...state, filterResults: action.payload, currentPage: 1 }
+    case ActionTypes.SET_FILTER:
+      return { ...state, filter: action.payload, currentPage: 1 }
+    case ActionTypes.SET_FILTER_RESULTS:
+      return { ...state, filterResults: action.payload }
     default:
       return state
   }
