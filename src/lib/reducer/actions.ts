@@ -1,37 +1,37 @@
 import type { ActionTypes } from "./action-types"
 
-export interface ISetCurrentPage {
+export type SetCurrentPage = {
   type: ActionTypes.SET_CURRENT_PAGE
   payload: number
 }
 
-export interface ISetTotalPages {
+export type SetTotalPages = {
   type: ActionTypes.SET_TOTAL_PAGES
   payload: number
 }
 
-export interface ISetPageSize {
+export type SetPageSize = {
   type: ActionTypes.SET_PAGE_SIZE
   payload: number
 }
 
-export interface ISetSortBy {
+export type SetSortBy = {
   type: ActionTypes.SET_SORT_BY
   payload: string
 }
 
-export interface ISetSortDirection {
+export type SetSortDirection = {
   type: ActionTypes.SET_SORT_DIRECTION
 }
 
-export interface ISetFilter {
+export type SetFilter = {
   type: ActionTypes.SET_FILTER
   payload: string
 }
 
-export interface ISetFilterResults {
+export type SetFilterResults = {
   type: ActionTypes.SET_FILTER_RESULTS
   payload: number
 }
 
-export type Action = ISetCurrentPage | ISetTotalPages | ISetPageSize | ISetSortBy | ISetSortDirection | ISetFilter | ISetFilterResults
+export type Action = SetCurrentPage | SetTotalPages | SetPageSize | SetSortBy | SetSortDirection | SetFilter | SetFilterResults

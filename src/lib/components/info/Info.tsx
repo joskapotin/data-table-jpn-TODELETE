@@ -6,7 +6,7 @@ export default function Info() {
   const totalEntries = entries.length
   const totalRow = filterResults
   const isFilter = totalRow !== totalEntries
-  const firstRow = (currentPage - 1) * pageSize + 1
+  const firstRow = totalRow > 0 ? (currentPage - 1) * pageSize + 1 : 0
   const lastRow = pageSize > totalRow || currentPage === totalPages ? totalRow : currentPage * pageSize
 
   return (

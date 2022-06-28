@@ -6,12 +6,12 @@ export const initialState: DataTableState = {
   labels: [],
   entries: [],
   currentPage: 1,
-  totalPages: -1,
+  totalPages: 0,
   pageSize: 10,
   sortBy: "",
   sortDirection: "asc",
   filter: "",
-  filterResults: -1,
+  filterResults: 0,
 }
 
 export default function reducer(state: DataTableState, action: Action) {
